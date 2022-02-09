@@ -1,0 +1,113 @@
+#containerff{
+    width:100%;
+    height:420px;
+}
+#navbar{
+    width:100%;
+    height:100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+}
+#logoff{
+    margin-top: 1%;
+    margin-left:38%;
+}
+#infoff{
+    color:white;
+    text-align:center;
+    font-family: Okra,Helvetica,sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+}
+#inputh{
+    width:60%;
+    height:44px;
+    background-color: white;
+    margin-left: 20%;
+    border-radius: 5px;
+}
+#foodword{
+    width:40%;
+    height:20%;
+    display: flex;
+    color:white;
+    text-align: start;
+    margin-left: 73%;
+}
+.pfood{
+    font-family: Okra,Helvetica,sans-serif;
+    margin-top: 15%;
+    width:150px;
+}
+.pfood2{
+    font-family: Okra,Helvetica,sans-serif;
+    margin-left: 4%;
+    margin-top: 15%;
+    width:150px;
+}
+
+#containerlatest{
+    margin-top: 50px;
+    width:"100%";
+    height:600px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:20px;
+}
+a{
+    text-decoration: none;
+    color:white;
+} 
+body{
+    margin-top: 0px;
+}
+#navbar2{
+    width:100%;
+    height:80px;
+    display: flex;
+    border:1px solid rgb(194, 190, 190);
+    text-decoration: none;
+    background-color: hsl(359, 95%, 43%);
+    color:black;
+}
+#home{
+    margin:2%;
+}
+#foodie {
+    max-height: 300px;
+    width: 60%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scrollbar-color: unset;
+    scrollbar-base-color: unset;
+    z-index: 99999;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-left:20%;
+  }
+  #litfood{
+    width:600px;
+    height:400px;
+    margin-left: 25%;
+}
+#containerkk{
+    margin-top: 150px;
+    width:100%;
+    height:2000px;
+}
+#details{
+    text-align: center;
+    margin-left: 9%;
+    width:80%;
+    height:400px;
+}
+#white{
+    margin-top: 30px;
+}
+#blackfood{
+    width:22%;
+    display: flex;
+    margin-left: 60%;
+    justify-content: space-between;
+}

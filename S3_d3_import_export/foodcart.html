@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="food_meals.css">
+    <style>
+        #containerlatest1{
+            width:500px;
+            height:400px;
+            margin-left:8%;
+        }
+        #descrip{
+            width:500px;
+            height:380px;
+            margin-left: 20px;
+            line-height: 25px;
+            background-color: rgb(197, 27, 27);
+            border-radius: 10px;
+            padding:10px;
+            color:white;
+        }
+        #badabox{
+            width:"100%";
+            height:"400px";
+            display: flex;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbarmeals"></div>
+    <div id="suggestion"></div> 
+    <div id="badabox">
+    <div id="containerlatest1"></div>
+        <div id="descrip"></div>
+ </div>
+</body>
+</html>
+<script type="module">
+    import navbar2 from "./navbar2.js"
+    var navbarmeals=document.querySelector("#navbarmeals");
+    navbarmeals.innerHTML=navbar2()
+    
+    var carting=document.querySelector("#containerlatest1")
+
+    let foodcoming=JSON.parse(localStorage.getItem('foodcoming'))
+            var img=document.createElement("img");
+            img.style.width="95%";
+            img.style.height="100%";
+            img.src=foodcoming.strCategoryThumb;
+            img.style.margin="auto"
+            var descrip=document.createElement("p")
+            descrip.textContent=foodcoming.strCategoryDescription
+            var naming=document.createElement("h3");
+            naming.textContent=foodcoming.strCategory;
+            naming.style.color="white";
+            console.log(naming)
+            var about=document.createElement("h4");
+            about.style.textAlign="center"
+            var div=document.createElement("div");
+            div.style.border="1px solid black"
+            div.style.backgroundColor="black";
+            div.style.textAlign="center";
+            div.style.borderRadius="10px";
+            about.textContent="₹"+(Math.ceil(Math.random()*1000));
+            about.style.color="#c92f38"
+            div.append(img,naming,about)
+            document.querySelector("#containerlatest1").append(div)
+            document.querySelector("#descrip").append(descrip)
+   
+
+ </script> 

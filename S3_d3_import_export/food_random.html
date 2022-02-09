@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="food_meals.css">
+    <style>
+        #container{
+            width:"50%";
+            height:"1950px";
+        }
+        #bigbox{
+            width:"100%";
+            height:"1950px";
+            display:flex;
+        }
+        #details{
+            margin-left: 20px;
+            width:"100%";
+            height:"1950px";
+        }
+        #header{
+            text-align: center;
+        }
+        #ingplusins{
+            width:"100%";
+            height:"90%";
+        }
+        #name{
+            width:100%;
+            height:8%;
+            color:white;
+            font-weight: 800;
+            background-color: #d70508;
+            border-top: grey;
+            border-radius:10px;
+            text-align: center;
+            /* background: rgba(236, 25, 25, 0.3) */
+        }
+        #instruction{
+            line-height:25px;
+            width:100%;
+            margin-right:20px;
+            color:black;
+            text-align:justify;
+        }
+        #ingredient{
+            width:100%;
+            line-height:25px;
+            color:black;
+        }
+        #ytvid{
+            width:80%;
+            height:400px;
+            margin:auto;
+        }
+        h2{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbarmeals"></div>
+    <div id="header"><h2>----Recipie Of The Day----</h2></div>
+    <div id="bigbox">
+    <div id="container"></div>
+    <div id="details">
+        <div id="name"></div>
+        <div id="ingplusins">
+        <div id="ingredient"></div>
+        <div id="instruction"></div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="module">
+    import navbar2 from "./navbar2.js"
+    var navbarmeals=document.querySelector("#navbarmeals");
+    navbarmeals.innerHTML=navbar2()
+
+    async function showRandom(){
+        try{
+            let food=await fetch("https://themealdb.com/api/json/v1/1/random.php")
+            let res=await food.json();
+            let foodarr=res.meals;
+            appenditem(foodarr)
+            console.log("res:",res)
+        }
+        catch(err){
+            console.log("err:",err)
+        }
+    }
+    showRandom() 
+
+    const appenditem=(meals)=>{
+        meals.forEach(({strMealThumb,strMeal,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strInstructions,strYoutube})=>{
+            var img=document.createElement("img");
+        img.src=strMealThumb;
+        img.style.width="500px";
+        img.style.height="430px";
+        img.style.marginTop="16px";
+        var name=document.createElement("h3");
+        name.textContent=strMeal;
+        name.style.marginTop="20px"
+        var ing=document.createElement("h4");
+        ing.textContent="Ingrediets";
+        ing.style.color="rgb(197, 27, 27)";
+        var ing1=document.createElement("p");
+        ing1.style.marginRight="15px";
+        ing1.style.marginLeft="40px";
+        ing1.textContent=strIngredient1;
+        var ing2=document.createElement("p");
+        ing2.style.marginRight="15px";
+        ing2.textContent=strIngredient2;
+        var ing3=document.createElement("p");
+        ing3.style.marginRight="15px";
+        ing3.textContent=strIngredient3;
+        var ing4=document.createElement("p");
+        ing4.style.marginRight="15px";
+        ing4.textContent=strIngredient4;
+        var ing5=document.createElement("p");
+        ing5.style.marginRight="15px";
+        ing5.textContent=strIngredient5;
+        var ing6=document.createElement("p");
+        ing6.textContent=strIngredient6;
+        ing6.style.marginRight="15px";
+        var ing7=document.createElement("p");
+        ing7.style.marginRight="15px";
+        ing7.textContent=strIngredient7;
+        var ing8=document.createElement("p");
+        ing8.style.marginRight="15px";
+        ing8.textContent=strIngredient8;
+        var intheline=document.createElement("div");
+        intheline.style.display="flex"
+        intheline.style.textAlign="center"
+        intheline.append(ing1,ing2,ing3,ing4,ing5,ing6,ing7,ing8,)
+        var inst=document.createElement("h4");
+        inst.style.color="rgb(197, 27, 27)";
+        inst.textContent="Instruction";
+        inst.style.textAlign="center"
+        var instdes=document.createElement("p");
+        instdes.textContent=strInstructions;
+
+        console.log(img)
+        document.querySelector("#container").append(img)
+        var name=document.querySelector("#name").append(name);
+        var ingg=document.querySelector("#ingredient").append(ing,intheline)
+        var instt=document.querySelector("#instruction").append(inst,instdes)
+        document.querySelector("#details").append(ingg,instt)
+        })
+        
+    }
+
+</script>
